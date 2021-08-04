@@ -9,8 +9,14 @@ class UserController{
             if(userExists){
                 return res.status(400).json({error:'Usuário já cadastrado'})
             }
-        const user = await User.create(req.body)
-        return res.json(user)
+        //Alerando o argumento user para exatamente o dados queremos retornar melhor a segurança do cliente porque antes ele retornava a senha do usuário e  agora só retorna os argumentos abaixo
+        const {id, name, email, provider} = await User.create(req.body)
+        return res.json({
+            id,
+            name,
+            email,
+            provider
+        })
     }
 }
 export default new UserController();
