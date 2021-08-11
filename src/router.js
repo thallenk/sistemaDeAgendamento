@@ -8,7 +8,7 @@ import UserController from './app/controllers/UserController';
 import User from './app/models/User';
 import SessionController from './app/controllers/SessionController'
 import FileController from './app/controllers/FileController'
-
+import CollaboratorController from './app/controllers/CollaboratorController';
 import authMiddleware from './app/midllewares/auth'
 
 const routes = new Router();
@@ -30,6 +30,9 @@ const upload = multer(multerConfig)
     routes.use(authMiddleware)
     //atualizar dados com metodo put
     routes.put('/users',authMiddleware, UserController.update)
+
+    // lista todos os colaboradores
+    routes.get('/collaborator', CollaboratorController.index)
 
     //upload de arquivos
     routes.post('/files', upload.single('file'), FileController.store)
