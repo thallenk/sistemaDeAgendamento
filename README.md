@@ -15,6 +15,7 @@ Ess sistema tem como objeto aplicar alguns conceitos do módulo 1 de nodejs, sã
 - Realizar autenticação do usuário através da lib jwt
 - Validação do usuário através da lib yup
 - Atualização de usuários
+- Adicionando imagem e vinculado ao usuário com multer, sequelize e migration para inserir no banco de dados.
 
 
 Desenvolvido com NODEJS.

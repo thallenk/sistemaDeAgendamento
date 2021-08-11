@@ -25,6 +25,11 @@ class User extends Model{
         })
         return this;
     }
+    //linkando a photo ao usuario pelo id
+    static associate(models){
+        this.belongsTo( models.File, { foreignKey: 'photo_id', as: 'photo'})
+      }
+
     checkPassword(password){
         return bcrypt.compare(password, this.password_hash)
     }
