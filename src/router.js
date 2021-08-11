@@ -10,6 +10,7 @@ import SessionController from './app/controllers/SessionController'
 import FileController from './app/controllers/FileController'
 import CollaboratorController from './app/controllers/CollaboratorController';
 import authMiddleware from './app/midllewares/auth'
+import AppointmentController from './app/controllers/AppointmentController';
 
 const routes = new Router();
 const upload = multer(multerConfig)
@@ -30,6 +31,9 @@ const upload = multer(multerConfig)
     routes.use(authMiddleware)
     //atualizar dados com metodo put
     routes.put('/users',authMiddleware, UserController.update)
+
+    //Rota de agendamento
+    routes.post('/appointments', AppointmentController.store)
 
     // lista todos os colaboradores
     routes.get('/collaborator', CollaboratorController.index)

@@ -25,7 +25,7 @@ class User extends Model{
         })
         return this;
     }
-    //linkando a photo ao usuario pelo id
+    // relacionando a photo ao usuario pelo id 
     static associate(models){
         this.belongsTo( models.File, { foreignKey: 'photo_id', as: 'photo'})
       }
