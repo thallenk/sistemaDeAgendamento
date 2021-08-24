@@ -17,6 +17,7 @@ Ess sistema tem como objeto aplicar alguns conceitos do módulo 1 de nodejs, sã
 - Atualização de usuários
 - Adicionando imagem e vinculado ao usuário com multer, sequelize e migration para inserir no banco de dados.
 - Agendamento do colaborador através do id do usuário.
+- Valida data de agendamento com lib data-fns
 
 
 Desenvolvido com NODEJS.

@@ -5,7 +5,6 @@ import multerConfig from './config/multer'
 // import User from './app/models/User'
 // import Database from './database'
 import UserController from './app/controllers/UserController';
-import User from './app/models/User';
 import SessionController from './app/controllers/SessionController'
 import FileController from './app/controllers/FileController'
 import CollaboratorController from './app/controllers/CollaboratorController';
@@ -34,6 +33,9 @@ const upload = multer(multerConfig)
 
     //Rota de agendamento
     routes.post('/appointments', AppointmentController.store)
+    
+    //Listagem de agendamento
+    routes.get('/appointments', AppointmentController.index)
 
     // lista todos os colaboradores
     routes.get('/collaborator', CollaboratorController.index)
