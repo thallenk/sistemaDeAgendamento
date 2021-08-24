@@ -7,8 +7,15 @@ import File from '../models/File'
 
 class AppointmentController{
 
+
+
     //Listando agendamento para usuario
     async index(req,res){
+        //Paginação de agendamentos
+        const { page = 1} = req.query
+
+
+
         const appointments = await Appointment.findAll({
             where: {
                 user_id: req.userId,
@@ -16,6 +23,9 @@ class AppointmentController{
             },
             order: ['date'],
             attributes:['id', 'date'],
+            //limitando 20 registros por page
+            limit: 20,
+            offset: (page-1)*20,
             include: [
                 {   //relacionando o user com o appointment
                     model: User,
