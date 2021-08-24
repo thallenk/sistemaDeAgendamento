@@ -10,6 +10,7 @@ import FileController from './app/controllers/FileController'
 import CollaboratorController from './app/controllers/CollaboratorController';
 import authMiddleware from './app/midllewares/auth'
 import AppointmentController from './app/controllers/AppointmentController';
+import ScheduleController from './app/controllers/scheduleController';
 
 const routes = new Router();
 const upload = multer(multerConfig)
@@ -39,6 +40,9 @@ const upload = multer(multerConfig)
 
     // lista todos os colaboradores
     routes.get('/collaborator', CollaboratorController.index)
+
+    //Listagem de agendamentos de colaborador
+    routes.get('/schedule', ScheduleController.index)
 
     //upload de arquivos
     routes.post('/files', upload.single('file'), FileController.store)
