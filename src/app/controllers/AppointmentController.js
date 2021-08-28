@@ -1,8 +1,10 @@
 import * as Yup from 'yup'
-import {startOfHour, parseISO, isBefore} from 'date-fns'
+import {startOfHour, parseISO, isBefore, format} from 'date-fns'
+import pt from 'date-fns/locale/pt-BR'
 import Appointment from "../models/Appointment";
 import User from '../models/User';
 import File from '../models/File'
+import Notifications from '../schema/Notifications';
 
 
 class AppointmentController{
@@ -94,6 +96,22 @@ class AppointmentController{
             user_id: req.userId,
             collaborator_id,
             date: startHour
+        })
+
+
+        // Criando corpo da notificação com o schema do mongodb
+        // tratando nome de usuario e data
+        const user = await User.findByPk(req.userId)
+        const formatDate =  format(
+            startHour,
+            "'o dia' dd 'de' MMMM', às' H:mm'h'",
+            {locale: pt}
+        )  
+
+
+        await Notifications.create({
+            content: `Novo agendamento de ${user.name} para ${formatDate}`,
+            user: collaborator_id
         })
 
         return res.json(appointment) 
