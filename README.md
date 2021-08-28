@@ -18,6 +18,8 @@ Ess sistema tem como objeto aplicar alguns conceitos do módulo 1 de nodejs, sã
 - Adicionando imagem e vinculado ao usuário com multer, sequelize e migration para inserir no banco de dados.
 - Agendamento do colaborador através do id do usuário.
 - Valida data de agendamento com lib data-fns
+- Adiciona banco de dados mongoDB para armazenar notificação de agendamentos
+- Listagem de notificação de agendamentos e marcando notificação como lida
 
 
 Desenvolvido com NODEJS.
