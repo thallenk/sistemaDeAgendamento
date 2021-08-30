@@ -2,8 +2,7 @@
 
 Sistema de agendamentos com Cadastro e autenticação de usuários;
 
-## GamaAcademy.
-Ess sistema tem como objeto aplicar alguns conceitos do módulo 1 de nodejs, são eles:
+Ess sistema tem como objeto aplicar alguns conceitos de nodejs, são eles:
 - Entender e aplicar o conceito de APIRest utilizando o protocolo http
 - Utilizar um container em docker para o banco de dados
 - aprender a utilizar o elephantSQL e Postbird onde é criado o banco de dados
